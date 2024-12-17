@@ -1,0 +1,33 @@
+ extend schema
+  @link(url: "https://specs.apollo.dev/federation/v2.3", import: [
+      "@key"
+      "@tag"
+      "@shareable"
+      "@inaccessible"
+      "@override"
+      "@external"
+      "@provides"
+      "@requires"
+      "@interfaceObject"
+    ])
+
+type Query {
+  a: A
+}
+
+interface A @key(fields: "id") {
+  id: ID!
+  fieldFromA: String
+}
+
+type A1 implements A @key(fields: "id") {
+  id: ID!
+  fieldFromA: String
+  fieldFromA1: String
+}
+
+type A2 implements A @key(fields: "id") {
+  id: ID!
+  fieldFromA: String
+  fieldFromA2: String
+}

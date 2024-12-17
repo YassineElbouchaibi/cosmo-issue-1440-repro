@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/wundergraph/cosmo/main/router/pkg/config/config.schema.json#
+
+version: '1'
+
+dev_mode: true
+execution_config: 
+  file:
+    path: "router.json" 
+graph:
+   token: ""

@@ -1,0 +1,21 @@
+version: 1
+
+subgraphs:
+  - name: a
+    routing_url: http://localhost:4099/a/graphql
+    # schema:
+    #   file: ./subgraphs/a/schema.graphql
+    introspection:
+      url: http://localhost:4099/a/graphql
+  - name: b
+    routing_url: http://localhost:4099/b/graphql
+    # schema:
+    #   file: ./subgraphs/b/schema.graphql
+    introspection:
+      url: http://localhost:4099/b/graphql
+  - name: c
+    routing_url: http://localhost:4099/c/graphql
+    # schema:
+    #   file: ./subgraphs/c/schema.graphql
+    introspection:
+      url: http://localhost:4099/c/graphql
