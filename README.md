@@ -13,3 +13,37 @@
 1. `npm run dev:subgraphs`
 1. `npx wgc router compose -i cosmo-compose-works.yaml -o cosmo-router.json`
 1. `docker run -it --rm --volume ./cosmo-router.json:/router.json --volume ./cosmo-config.yaml:/config.yaml --network host -e LISTEN_ADDR=0.0.0.0:3003 ghcr.io/wundergraph/cosmo/router:0.151.1`
+
+## Query
+
+The query below will cause the router to crash:
+```gql
+query {
+  a {
+    id
+    fieldFromA
+  	... on A1 {
+      fieldFromA1
+      fieldFromB
+    }
+    
+    ... on A2 {
+      fieldFromA2
+    }
+  }
+  b {
+    id
+    fieldFromB
+  }
+  c {
+    id
+    fieldFromC
+    a {
+      id
+      ... on A1 {
+        fieldFromA1
+      }
+    }
+  }
+}
+```
